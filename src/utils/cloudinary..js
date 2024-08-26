@@ -21,22 +21,7 @@ const uploadOnCloudinary=async(localFilePath)=>{
         return null;
      }
 }
-export {uploadOnCloudinary};
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-cloudinary.v2.uploader.upload(
+  cloudinary.v2.uploader.upload(
   "https://res.cloudinary.com/demo/image/upload/getting-started/shoes.jpg",
   {
     public_id: "shoes",
@@ -45,3 +30,4 @@ cloudinary.v2.uploader.upload(
     console.log(result);
   }
 );
+export {uploadOnCloudinary};
