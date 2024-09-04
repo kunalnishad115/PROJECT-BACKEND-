@@ -1,13 +1,7 @@
 import  express from 'express'
 import cors from 'cors'
 import cookieParser from 'cookie-parser'
-// import {middleware} from './middlewares/multer.middleware.js'
-// import {app} from  './app.js'
 
-
-// const express = require('');
-// const cookieParser = require('');
-// require module
 
 
 
