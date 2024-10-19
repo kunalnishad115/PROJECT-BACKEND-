@@ -1,1 +1,1 @@
-export const Database_name="backend"
+export const DB_NAME = "videotube"

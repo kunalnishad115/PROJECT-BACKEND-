@@ -3,7 +3,7 @@ import jwt from "jsonwebtoken";
 import bcrypt from "bcrypt";
 const userSchema = new Schema(
   {
-    userName: {
+    username: {
       type: String,
       required: true,
       unique: true,
@@ -33,7 +33,7 @@ const userSchema = new Schema(
     },
     watchHistory: [
       {
-        type: Schema.types.ObjectId,
+        type: Schema.Types.ObjectId,
         ref: "Video",
       },
     ],
@@ -56,12 +56,12 @@ userSchema.pre("save", async function (next) {
 userSchema.methods.isPasswordCorrect = async function (password) {
   return await bcrypt.compare(password, this.password);
 };
-userSchema.methods.genrateAccessToken = async function () {
+userSchema.methods.generateAccessToken = async function () {
   return await jwt.sign(
     {
       _id: this._id, //payload writing
       email: this.email,
-      userName: this.userName,
+      username: this.username,
       fullName: this.fullName,
     },
     process.env.ACCESS_TOKEN_SECRET,
@@ -70,7 +70,7 @@ userSchema.methods.genrateAccessToken = async function () {
     }
   );
 };
-userSchema.methods.genrateRefreshToken = async function () {
+userSchema.methods.generateRefreshToken = async function () {
   jwt.sign(
     {
       _id: this._id,
